@@ -147,8 +147,60 @@ with open('output.txt', 'w') as f:
     f.write(f'v4 = {cnd1 + cnd2 + cnd3}\n')
 ```
 
-Empezamos revisando que **with open('output.**
+Empezamos revisando que **with open('output.txt', 'w') as f:**
+- Aqui se abre el archivo output.txt en otras palabras creara el archivo si no esta creado y empezara a escribir en el, de lo contrario borra su contenido anterior y lo abre para escribrir desde cero.
+- **f.write** : instruccion que sive para escribir texto dentro de ese archivo en este caso se ejecuta varias y cada una con una respectiva operacion.
 
+Veamos un ejemplo como termina el output.txt:
 
+- Digamos que cnd1 = 10, cnd2 = 20, cnd3 = 30, en archivo tendria algo asi:
 
+```
+v1 = 10**3 + 30**2 + 20
+v2 = 20**3 + 10**2 + 30
+v3 = 30**3 + 20**2 + 10
+v4 = 10 + 20 + 30
+```
+
+Pero calculado seria asi:
+
+```
+v1 = 1000 + 900 + 20 = 1920
+v2 = 8000 + 100 + 30 = 8130
+v3 = 27000 + 400 + 10 = 27410
+v4 = 60
+```
+
+# Conclusion del reto:
+
+- Consiste en recuperar los valores originales de cnd1, cnd2 y cnd3 a partir de:
+
+$$
+v1 = cnd1^2 + cnd3^2 + cnd2
+$$
+$$v2 = cnd2^3 + cnd1^2 + cnd3$$
+$$v3 = cnd3^3 + cnd2^2 + cnd1$$
+$$v4 = cnd1 + cnd2 + cnd3$$
+
+En el output.txt se encuentran los valores numericos de v1, v2, v3 y v4.
+
+# Solucion:
+
+Para hacer la ecuacion lineal mas simple:
+- La ecuacion:
+$$v4 = x + y + z$$
+- nos permite expresar una variable en funcion de las otras dos. Por ejemplo:
+
+$$z = v4 - x - y$$
+- Esto es util porque podemos sustituir **z** en las otras ecuaciones para reducir el sistema de 3 variables a solo 2 variables.
+
+## Vamos a sustituir:
+
+- Ecuacion 1:
+$$v1 = x^2 + (v4 - x - y)^2 + y$$
+
+- Ecuacion 2:
+$$v2 = y^3 + x^2 + (v4 - x - y)$$
+- Ecuacion 3:
+$$v3 = (v4 - x - y)^3 + y^2 + x$$
 
