@@ -3,12 +3,22 @@
 ---
 
 
-# Bienvenido a mi jardín digital 🧠🌱
+# 🌱 Bienvenido a mi Jardín Digital
 
-En este espacio comparto mis retos resueltos, especialmente de **Hack The Box** y **CTFs**.
+¡Hola, explorador de bits!  
+Has llegado a mi espacio personal donde florecen ideas, aprendizajes y desafíos técnicos.
 
-## Índice de retos
+En este jardín encontrarás una colección de retos resueltos, principalmente de **Hack The Box**, **CTFs** y otros desafíos relacionados con ciberseguridad, criptografía y hacking ético.  
+Cada nota es una semilla de conocimiento que he plantado y cultivado con pasión.
+
+---
+
+## 🧠 Índice de Retos
 
 - [[Hack the Box/Crypto/Sugar free candies\|Sugar free candies]]
 - [[Nombre de otro reto\|Nombre de otro reto]]
 - [[Nombre de otro reto más\|Nombre de otro reto más]]
+
+---
+
+> 🚧 Este jardín está en constante crecimiento. Vuelve pronto para más descubrimientos.
