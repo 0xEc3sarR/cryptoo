@@ -459,5 +459,7 @@ if __name__ == '__main__':
     pwn()
 ```
 
-# Resultado final: HTB{solving_equations_for_parts_of_the_flag_over_the_integers!}
+# Resultado final: 
+
+HTB{solving_equations_for_parts_of_the_flag_over_the_integers!}
 
