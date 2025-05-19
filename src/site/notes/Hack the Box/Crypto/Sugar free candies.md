@@ -241,6 +241,145 @@ if __name__ == "__main__":
 ```
 
 A continuacion una segunda version del codigo usando librerias como sympy, ya que a veces existe problemas con sage math, por lo tanto al final les dejare un enlace a como instalarlo en linux, ya que nativamente en windows es inestable.
+
+## Explicacion codigo 1:
+
+Empezamos por las librerias importadas:
+
+```
+from sage.all import *
+from Crypto.Util.number import long_to_bytes
+```
+
+- Importamos todo sage math
+- Importamos long_to_bytes para convertir enteros grandes a bytes (reconstruir la flag)
+
+Primera funcion del codigo:
+
+```
+def create_variables():
+    x, y, z = var('x, y, z', domain=ZZ)
+    return x, y, z
+```
+
+- Definimos 3 variables simbolicas enteras x,y,z.
+- Estas representaran los valores desconocidos cnd1, cnd2, cnd3.
+- Sage puede trabajar con esas variables para construir ecuaciones, etc.
+- var() -> es una funcion en sage math que crea variables simbolicas. 
+- 'x, y, z' es una cadena de texto que le dice a sage math que quiere 3 variables llamadas, x, y, z.
+```
+x, y, z = var('x, y, z')
+```
+estamos diciendo: "dame 3 variables simbolicas reales" por defecto.
+- Que significa domain=ZZ? -> Esto restringe el dominio de variables a los numeros enteros Z (de ahi ZZ en sage), ya que ZZ es el conjunto de los enteros en SageMath: Z = {..., -2, -1, 0, 1, 2,...}.
+
+Conjuntos numericos en SageMath:
+
+| Conjunto | Representacion      | Descripcion                                                                           |
+| -------- | ------------------- | ------------------------------------------------------------------------------------- |
+| $$N$$    | $$NN$$              | Números naturales (no negativos): {0,1,2,… }\{0, 1, 2, \dots\}{0,1,2,…}               |
+| $$Z$$    | $$ZZ$$              | Números enteros: {…,−2,−1,0,1,2,… }\{\dots, -2, -1, 0, 1, 2, \dots\}{…,−2,−1,0,1,2,…} |
+| $$Q$$    | $$QQ$$              | Números racionales                                                                    |
+| $$R$$    | $$RR$$              | Números reales con precisión limitada (punto flotante)                                |
+| $$R^n$$  | $$RealField(n)$$    | Reales con precisión de `n` bits                                                      |
+| $$C$$    | $$CC$$              | Números complejos con precisión limitada                                              |
+| $$C^n$$  | $$ComplexField(n)$$ | Complejos con precisión de `n` bits                                                   |
+- Por ultimo retornamos esas varaibles ya creadas.
+
+Segunda funcion:
+
+```
+def solve_system(x, y, z, v1, v2, v3, v4):
+    return solve([
+        x**3 + z**2 + y == v1,
+        y**3 + x**2 + z == v2,
+        z**3 + y**2 + x == v3,
+        x + y + z == v4
+    ], x, y, z, solution_dict=True)[0]
+```
+
+- Recibe las variables x, y, z y los valores v1, v2, v3, v4.
+- Construye un sistema de 4 ecuaciones no lineales:
+$$
+x^3 + z^2 + y = v1​
+$$
+$$
+y^3 + x^2 + z = v2
+$$
+$$
+z^3 + y^2 + x = v3 
+$$
+$$
+x + y + z = v4
+$$
+
+- Cabe recalcar que que **solve()** es la funcion de Sage para resolver ecuaciones o sistemas de ecuaciones.
+- Le pasamos una lista de ecuaciones como primer argumento.
+- Luego le decimos explicitamente que queremos resolver con respecto a las variables x, y, z.
+-  **solution_dict=True** -> Esto le dice a sage que retorne las soluciones como un diccionario en lugar de una lista de ecuaciones.
+
+Con **solution_dict=True** obtenes:
+
+```
+[{x: 123, y: 456, z: 789}]
+```
+
+Sin **solution_dict=True** obtienes:
+
+```
+[[x == 123, y == 456, z == 789]]
+```
+
+El formato tipo diccionario es mucho mas facil de usar programaticamente, por eso es usado.
+
+-  Explicacion de **[0]** -> **solve()** devuelve una lista de soluciones, incluso si hay solo una.
+- **[0]** accede a la primera solucion encontrada.
+Entonces:
+
+```
+solve(...)[0]
+```
+
+- toma solo la primera solucion valida (a veces hay varias, pero en este caso se espera que haya una unica solucion entera valida).
+
+Tercera funcion del codigo:
+
+```
+def get_flag(sols):
+    return b''.join([long_to_bytes(int(n)) for n in [sols[x], sols[y], sols[z]]])
+```
+
+- La funcion toma una solucion del sistema de ecuaciones (el diccionario sols) que contiene valores de **x**, **y**, **z**, y:
+	1. Convierte cada uno de esos numeros grandes (enteros) a bytes, usando **long_to_bytes**.
+	2. Une esos bloques de bytes en un solo string de bytes con **b''.join(..)**
+	3. Asi, reconstruye la **FLAG** original que estaba codificada.
+
+## Desglose paso a paso del programa
+
+Por ejemplo:
+
+- Este se un diccionario con la solucion de las variables sombolicas.
+
+```
+sols = {x: 557928492384, y: 349823902832, z: 184382103920}
+```
+
+- Estos valores vienen de:
+
+```
+sols = solve_system(x, y, z, v1, v2, v3, v4)
+```
+
+**[sols[x], sols[y], sols[z]]**
+- Extraemos los valores asociados a x, y, z en el oden en que fueron generados originalmente (cnd1, cnd2, cnd3).
+- Por ejemplo:
+
+```
+- [557928492384, 349823902832, 184382103920]
+```
+
+
+
 ## Codigo 2:
 
 - Este codigo cumple con la misma funcion sin sage math, pero es un poco mas robusto por eso mismo.
