@@ -204,3 +204,94 @@ $$v2 = y^3 + x^2 + (v4 - x - y)$$
 - Ecuacion 3:
 $$v3 = (v4 - x - y)^3 + y^2 + x$$
 
+## Codigo 1:
+- Ahora pasaremos a hacer el codigo, lo cual es mas sencillo ya que solamente usaremos **sage math** para hacer el calculo del sistema de ecuaciones sin hacer tantos cambios de variables.
+- Pasare a darle una explicacion detallada del codigo, ya que si se entiene este poco, se puede entender sin problema con **sympy**.
+
+```
+from sage.all import *
+from Crypto.Util.number import long_to_bytes
+
+def create_variables():
+    x,y,z = var('x,y,z', domain=ZZ)
+    return x,y,z
+
+def solve_system(x, y, z, v1, v2, v3, v4):
+    return solve([
+        x**3 + z**2 + y == v1,
+        y**3 + x**2 + z == v2,
+        z**3 + y**2 + x == v3,
+        x + y + z == v4
+        ], x, y, z, solution_dict=True)[0]
+
+def get_flag(sols):
+    return b''.join([long_to_bytes(int(n)) for n in [sols[x], sols[y], sols[z]]])
+
+exec(open('output.txt').read())
+
+def pwn():
+    x, y, z = create_variables()
+    sols = solve_system(x, y, z, v1, v2, v3, v4)
+    flag = get_flag(sols)
+    print(flag)
+
+
+if __name__ == "__main__":
+    pwn()
+```
+
+A continuacion una segunda version del codigo usando librerias como sympy, ya que a veces existe problemas con sage math, por lo tanto al final les dejare un enlace a como instalarlo en linux, ya que nativamente en windows es inestable.
+## Codigo 2:
+
+- Este codigo cumple con la misma funcion sin sage math, pero es un poco mas robusto por eso mismo.
+
+```
+from Crypto.Util.number import * # bytes_to_long
+from sympy import symbols, solve, Eq # import *
+
+
+
+def create_variables():
+    x, y, z = symbols('x y z', integer=True)
+    return x, y, z
+
+
+def solve_system(v1, v2, v3, v4):
+    x, y, z = create_variables()
+    equations = [
+        Eq(x**3 + z**2 + y, v1),
+        Eq(y**3 + x**2 + z, v2),
+        Eq(z**3 + y**2 + x, v3),
+        Eq(x + y + z, v4),
+    ]
+    solutions = solve(equations, (x, y, z), dict=True)
+    return solutions[0] if solutions else None
+
+def get_flag(sols):
+    x, y, z = create_variables()
+    parts = [long_to_bytes(int(sols[var])) for var in [x, y, z]]
+    return b''.join(parts)
+
+def load_values():
+    with open('output.txt') as f:
+        data = f.read()
+    return {
+        'v1' : int(data.split('v1 = ')[1].split('\n')[0]),
+        'v2' : int(data.split('v2 = ')[1].split('\n')[0]),
+        'v3' : int(data.split('v3 = ')[1].split('\n')[0]),
+        'v4' : int(data.split('v4 = ')[1])
+    }
+
+def pwn():
+    values = load_values()
+    solutions = solve_system(**values)
+    if solutions:
+        flag = get_flag(solutions)
+        print(flag.decode())
+    else:
+        print("No se encontraron soluciones válidas")
+
+if __name__ == '__main__':
+    pwn()
+```
+
