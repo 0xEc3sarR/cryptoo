@@ -3,9 +3,12 @@
 ---
 
 
-# Bienvenido
+# Bienvenido a mi jardín digital 🧠🌱
 
-Esta es una prueba de publicación.
+En este espacio comparto mis retos resueltos, especialmente de **Hack The Box** y **CTFs**.
 
-[Ver reto de criptografía: Sugar free candies](Sugar free candies)
+## Índice de retos
 
+- [[Hack the Box/Crypto/Sugar free candies\|Sugar free candies]]
+- [[Nombre de otro reto\|Nombre de otro reto]]
+- [[Nombre de otro reto más\|Nombre de otro reto más]]
