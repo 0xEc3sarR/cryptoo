@@ -378,7 +378,32 @@ sols = solve_system(x, y, z, v1, v2, v3, v4)
 - [557928492384, 349823902832, 184382103920]
 ```
 
+**int(n)**
 
+- En sage, los numeros simbolicos a veces no son del tipo **int** de python, sino del tipo **Integer**, Rational, etc. Por eso, para asegurar compatibilidad con **long_to_bytes**, se hace:
+
+```
+int(n)
+```
+
+- Eso garantiza que el valor sea un entero nativo de Python.
+
+**long_to_bytes(...)**
+- Esta funcion proviene de **Crypto.Util.number** y convierte un numero grange (por ejemplo: 557928492384) a su representacion en bytes:
+
+```
+>>> long_to_bytes(557928492384)
+b'Hello'
+```
+
+- Asi se revierte lo que se hizo con **bytes_to_long** al encriptar la flag.
+
+**b''.join([...])**
+- Junta todos esos fragmentos de bytes en un solo bloque continuo.
+
+```
+[b'HTB{', b'cesar_', b'flag}'] → b'HTB{cesar_flag}'
+```
 
 ## Codigo 2:
 
@@ -433,4 +458,6 @@ def pwn():
 if __name__ == '__main__':
     pwn()
 ```
+
+# Resultado final: HTB{solving_equations_for_parts_of_the_flag_over_the_integers!}
 
