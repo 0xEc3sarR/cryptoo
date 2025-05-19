@@ -461,5 +461,5 @@ if __name__ == '__main__':
 
 # Resultado final: 
 
-HTB{solving_equations_for_parts_of_the_flag_over_the_integers!}
+- **HTB{solving_equations_for_parts_of_the_flag_over_the_integers!}**
 
