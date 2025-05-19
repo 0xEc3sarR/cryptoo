@@ -1,0 +1,5 @@
+site:
+  title: "Mi Jardín de CTFs"
+  description: "Notas de Hack The Box desde Obsidian"
+theme:
+  accentColor: "#00ffaa"
