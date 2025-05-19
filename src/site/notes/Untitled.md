@@ -7,5 +7,4 @@
 
 Esta es una prueba de publicación.
 
-[Ver reto de criptografía: Sugar free candies](Sugar free candies)
 
