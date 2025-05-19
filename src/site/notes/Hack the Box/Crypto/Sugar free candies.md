@@ -2,7 +2,7 @@
 {"dg-publish":true,"permalink":"/hack-the-box/crypto/sugar-free-candies/","dgPassFrontmatter":true}
 ---
 
-xdxd
+
 Para empezar el reto tenemos el siguiente codigo que nos proporciona el reto:
 
 ```
