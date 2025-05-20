@@ -60,3 +60,85 @@ from base64 import b64encode
 - **Crypto.Util.Padding.pad**: rellena los datos para que su longitud sea multiplo del tamaño de bloque (16 bytes).
 - **base64.b64encode**: codifica datos binarios (el ciphertext) a una cadena legible.
 
+- Segunda parte del codigo: variable ALPHABET
+```
+ALPHABET = string.ascii_letters + string.digits + '~!@#$%^&*'
+```
+
+**string.ascii_letters** -> Este valor viene del modulo **string** de python, contiene:
+```
+'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ'
+```
+- Es decir que contiene todas las letras del alfabeto en ingles:
+	- 26 letras minusculas
+	- 26 letras mayusculas
+- Total: 52 caracteres
+
+**string.digits** -> Tambien viene del modulo string. Contiene:
+```
+'0123456789'
+```
+- Todos los digitos numericos.
+- Total: 10 caracteres
+
+Caracteres: '~!@#$%^&*' -> Esta es una cadena escrita directamente en el codigo, que incluye 10 caracteres especiales.
+
+- Esto ayuda a crear passwords con mas complejidad.
+
+**Total de caracteres: 26 + 26 + 10 + 10 = 72**
+
+- Tercera parte del codigo:
+```
+def generate_password():
+    master_key = int.from_bytes(MASTER_KEY, 'little')
+    password = ''
+
+    while master_key:
+        bit = master_key & 1
+        if bit:
+            password += random.choice(ALPHABET[:len(ALPHABET)//2])
+        else:
+            password += random.choice(ALPHABET[len(ALPHABET)//2:])
+        master_key >>= 1
+
+    return password
+```
+
+Empezamos con la variable: **master_key**
+
+```
+master_key = int.from_bytes(MASTER_KEY, 'little')
+```
+
+- Convierte una secuencia de bytes (MASTER_KEY) en un numero entero (int) interpretandolos en **orden little endian**.
+- La variable **MASTER_KEY** es una variable de tipo bytes y podria ser algo asi:
+```
+MASTER_KEY = b'\x01\x02\x03\x04'
+```
+- La funcion **int.from_bytes** convierte una secuencia de bytes a un numero entero.
+- Sintaxis:
+```
+- int.from_bytes(bytes_objeto, byteorder)
+```
+- byteorder: puede ser **little** o **big**:
+	- **little** -> El primer byte es el menos significativo (LSB)
+	- **big** -> El primer byte es el mas significativo (MSB)
+
+### Que significa 'little' endian?
+
+- Indica como deben interpretarse los bytes en cuanto a su orden de significancia.
+```
+MASTER_KEY = b'\x01\x02\x03\x04'
+```
+
+- Usando:
+```
+int.from_bytes(MASTER_KEY, 'little')
+```
+
+Esto se interpreta asi:
+
+
+| Byte | Posicion | Valor (hex) | Potencia de 256 | Valor decimal |
+| ---- | -------- | ----------- | --------------- | ------------- |
+|      |          |             |                 |               |
