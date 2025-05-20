@@ -106,6 +106,19 @@ def generate_password():
 
 Empezamos con la variable: **master_key**
 
+- Algo a considerar es -> Que son los bytes significativos?
+	- Cuando representamos un numero binario que ocupa varios bytes, cada byte representa una parte del numero. La importancia (o "significancia") de cada byte depende de su posicion.
+
+Definicion: 
+- Byte mas significativo (MSB - Most Significant Byte):
+	- Es el que contribuye mas al valor total del numero.
+	- Contiene los bits de mayor peso (como los millones en un numero decimal grande).
+- Byte menos significatio (LSB - Least Significant Byte):
+	- Es el que contribuye menos al valor total.
+	- Contiene los bits de menor peso (como las unidades en un numero decimal).
+
+
+
 ```
 master_key = int.from_bytes(MASTER_KEY, 'little')
 ```
@@ -138,7 +151,12 @@ int.from_bytes(MASTER_KEY, 'little')
 
 Esto se interpreta asi:
 
-
 | Byte | Posicion | Valor (hex) | Potencia de 256 | Valor decimal |
 | ---- | -------- | ----------- | --------------- | ------------- |
-|      |          |             |                 |               |
+| 0    | LSB      | 0x01        | 256^0           | 1             |
+| 1    |          | 0x02        | 256^1           | 512           |
+| 2    |          | 0x03        | 256^2           | 196608        |
+| 3    | MSB      | 0x04        | 256^3           | 67108864      |
+Entonces el resultado es: 1 + 512 + 196608 + 67108864 = 67305985
+
+
