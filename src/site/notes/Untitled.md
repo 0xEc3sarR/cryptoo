@@ -15,8 +15,8 @@ Cada nota es una semilla de conocimiento que he plantado y cultivado con pasión
 
 ## 🧠 Índice de Retos
 
-- [[Hack the Box/Crypto/Very Easy/Sugar free candies\|Sugar free candies]]
-- [[Hack the Box/Crypto/Very Easy/SPG\|SPG]]
+- [[Hack the Box/Challenges/Crypto/Very Easy/Sugar free candies\|Sugar free candies]]
+- [[Hack the Box/Challenges/Crypto/Very Easy/SPG\|SPG]]
 - [[Nombre de otro reto más\|Nombre de otro reto más]]
 
 ---
