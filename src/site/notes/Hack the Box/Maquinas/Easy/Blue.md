@@ -80,14 +80,56 @@ Para interactuar con los recursos compartidos usaremos smbclient:
 smbclient //10.10.10.40/shares -N
 ```
 
+Los unico recursos compartidos con los cuales podemos interactuar son dos: **Share** y **Users**
+
 Intentamos con **Share**:
 
 ![Pasted image 20250522160800.png](/img/user/Pasted%20image%2020250522160800.png)
 
-
-
-
 Intentamos con "Users"
 
 ![Pasted image 20250522004743.png](/img/user/Pasted%20image%2020250522004743.png)
+
+Nada interesante el los recursos compartidos.
+
+Investigando un poco, vemos que existe una vulnerabilidad llamada EternalBlue la cual afecta principalmente a versiones de Windows que tienen el servicio SMBv1 habilitado y sin parches. Fue explotada por el exploit EternalBlue, filtrado por el grupo Shadow Brokers en 2017, y se identifica como:
+
+CVE-2017-0144
+
+Los sisemas que son vulnerables a EternalBlue (si no tienen el parche):
+
+- Windows XP
+- Windows Vista
+- Windows 7
+- Windows 8 (menos comun, pero puede verse afectado)
+- Windows Server 2003
+- Windows Server 2008
+- Windows Server 2012 (en cietas configuraciones con SMBv1)
+- Windows 10 (anteriores a marzo de 2017, sin parche)
+
+Que permite hacer EternalBlue?:
+- Ejecucion remota de codigo (RCE) a traves del puerto 445/TCP (SMB).
+- Se usa para obtener shells remotas sin autenticacion.
+- Se popularizo en malware como WannaCry y NotPetya.
+
+Recomendaciones para prevenir:
+1. Deshabilitar SMBv1 si no es necesario.
+2. Aplicar todos los parches de seguridad de Windows.
+3. Bloquear el puerto 445/TCP en firewalls cuando sea posible.
+
+Procedere a probar con un payload de nmap para verificar si esta maquina Windows 7 es vulnerable a EternalBlue.
+
+```
+nmap -p 445 --script smb-vuln-ms17-010 10.10.10.40
+```
+
+![Pasted image 20250522163445.png](/img/user/Pasted%20image%2020250522163445.png)
+
+O tambien podemos usar el siguiente payload para enumerar vulnerabiliades conocidas en el SMB:
+
+```
+nmap -p 445 --script smb-vuln* 10.10.10.40
+```
+
+![Pasted image 20250522163652.png](/img/user/Pasted%20image%2020250522163652.png)
 
