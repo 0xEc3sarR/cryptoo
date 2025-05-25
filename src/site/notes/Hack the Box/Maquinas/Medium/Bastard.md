@@ -4,7 +4,7 @@
 
 Empezamos hacineco un nmap para poder ver los puertos que estan abiertos.
 
-![Pasted image 20250523190316.png](/img/user/Pasted%20image%2020250523190316.png)
+![Pasted image 20250523190316.png](/img/user/Imagenes/Pasted%20image%2020250523190316.png)
 
 Los puertos abiertos relevantes que tenemos son:
 
@@ -14,7 +14,7 @@ Los puertos abiertos relevantes que tenemos son:
 
 Accedemos al puerto 80, para ver que hay en la pagina web:
 
-![Pasted image 20250523190433.png](/img/user/Pasted%20image%2020250523190433.png)
+![Pasted image 20250523190433.png](/img/user/Imagenes/Pasted%20image%2020250523190433.png)
 
 Si hacemos un whatweb:
 
@@ -26,7 +26,7 @@ http://10.10.10.9 [200 OK] Content-Language[en], Country[RESERVED][ZZ], Drupal, 
 Vemos que el CMS que esta corriendo en la pagina es drupal.
 - Investigando sabemos que en drupal para saber su version se encuentra en el archivo: **changelog.txt**.
 
-![Pasted image 20250523190630.png](/img/user/Pasted%20image%2020250523190630.png)
+![Pasted image 20250523190630.png](/img/user/Imagenes/Pasted%20image%2020250523190630.png)
 
 La version de drupa les 7.54
 

@@ -135,7 +135,7 @@ Dividido en dos bytes:
 - LSB (byte) = 0x34 (0011 0100)
 
 
-![Pasted image 20250520005847.png](/img/user/Pasted%20image%2020250520005847.png)
+![Pasted image 20250520005847.png](/img/user/Imagenes/Pasted%20image%2020250520005847.png)
 
 **Por que importa esto?** -> Depende de como una computadora almacena los datos, especialmente en diferentes arquitecturas:
 
