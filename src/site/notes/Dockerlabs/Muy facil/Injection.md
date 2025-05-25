@@ -69,3 +69,9 @@ Para entenderlo mejor que es el SUID?
 -rwsr-xr-x 1 root root 43976 Jan  8  2024 /usr/bin/env
 ```
 Este programa tiene le disfraz magico (SUID) de la autoridad (root).
+
+![Pasted image 20250525015818.png](/img/user/Imagenes/Pasted%20image%2020250525015818.png)
+
+Finnalmente somos root.
+
+thanks.
