@@ -1,5 +1,5 @@
 ---
-{"dg-publish":true,"permalink":"/hacker101/level-2/","dgPassFrontmatter":true}
+{"dg-publish":true,"permalink":"/hacker101/level-2/","dgPassFrontmatter":true,"noteIcon":""}
 ---
 
 
@@ -87,13 +87,13 @@ Aqui se puede observar como se rompe la consulta y por lo tanto hemos hecho una 
 
 Tenemos lo siguiente:
 
-![Pasted image 20250526205745.png](/img/user/Pasted%20image%2020250526205745.png)
+![Pasted image 20250526205745.png](/img/user/Imagenes/Pasted%20image%2020250526205745.png)
 
 Un boton, como la pagina en si se centro en xss y sql, eso nos confirma que hay javascript, por lo tanto podemos hacer funconar el boton, probemos con un **onclick="alert(1)"**.
 
 Y luego de eso si inspeccionamos la pagina, observamos que obtenemos la flag:
 
-![Pasted image 20250526205958.png](/img/user/Pasted%20image%2020250526205958.png)
+![Pasted image 20250526205958.png](/img/user/Imagenes/Pasted%20image%2020250526205958.png)
 
 FLAG: **^FLAG^8071d454a14df3466e6a89124ca951eb92f34cd59cbffdfdaa8ecbd064c63666$FLAG$**
 

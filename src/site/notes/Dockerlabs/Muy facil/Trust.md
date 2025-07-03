@@ -1,5 +1,5 @@
 ---
-{"dg-publish":true,"permalink":"/dockerlabs/muy-facil/trust/","dgPassFrontmatter":true}
+{"dg-publish":true,"permalink":"/dockerlabs/muy-facil/trust/","dgPassFrontmatter":true,"noteIcon":""}
 ---
 
 ![Pasted image 20250526085117.png](/img/user/Imagenes/Pasted%20image%2020250526085117.png)

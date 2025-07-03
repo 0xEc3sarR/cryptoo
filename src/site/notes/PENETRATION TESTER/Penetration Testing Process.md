@@ -1,5 +1,5 @@
 ---
-{"dg-publish":true,"permalink":"/penetration-tester/penetration-testing-process/","dgPassFrontmatter":true}
+{"dg-publish":true,"permalink":"/penetration-tester/penetration-testing-process/","dgPassFrontmatter":true,"noteIcon":""}
 ---
 
 Si queremos practicas en entornos reales que nos puden servir en el futuro, podemos empezar con plataformar como https://hackerone.com/directory/programs (HackerOne) y https://bugcrowd.com/engagements?category=bug_bounty&page=1&sort_by=promoted&sort_direction=desc (Bugcrowd).
@@ -128,12 +128,14 @@ Antes de completar la evaluación y desconectarnos de la red interna del cliente
 
 Ya deberíamos tener una lista detallada de los hallazgos que incluiremos en el informe y todos los detalles necesarios para adaptarlos al entorno del cliente. Nuestro informe (que se detalla en el módulo Documentación e Informes ) debería constar de lo siguiente:
 
+``` cs
     Una cadena de ataque (en caso de compromiso interno total o externo al acceso interno) que detalla los pasos tomados para lograr el compromiso
     Un resumen ejecutivo sólido que una audiencia sin conocimientos técnicos pueda comprender
     Hallazgos detallados específicos del entorno del cliente que incluyen una calificación de riesgo, el impacto de los hallazgos, recomendaciones de remediación y referencias externas de alta calidad relacionadas con el problema.
     Pasos adecuados para reproducir cada hallazgo para que el equipo responsable de la remediación pueda comprender y probar el problema mientras implementa soluciones.
     Recomendaciones a corto, mediano y largo plazo específicas para el medio ambiente.
     Apéndices que incluyen información como el alcance del objetivo, datos OSINT (si son relevantes para el compromiso), análisis de descifrado de contraseñas (si es relevante), puertos/servicios descubiertos, hosts comprometidos, cuentas comprometidas, archivos transferidos a sistemas propiedad del cliente, cualquier creación de cuenta/modificaciones del sistema, un análisis de seguridad de Active Directory (si es relevante), datos de escaneo relevantes/documentación complementaria y cualquier otra información necesaria para explicar un hallazgo o recomendación específicos con más detalle.
+```
 
 En esta etapa, crearemos un borrador del informe, que será el primer entregable que recibirá nuestro cliente. A partir de aquí, podrá comentarlo y solicitar las aclaraciones o modificaciones necesarias.
 ### Reunión de revisión de informes

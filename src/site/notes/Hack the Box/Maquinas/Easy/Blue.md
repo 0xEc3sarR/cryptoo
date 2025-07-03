@@ -1,5 +1,5 @@
 ---
-{"dg-publish":true,"permalink":"/hack-the-box/maquinas/easy/blue/","dgPassFrontmatter":true}
+{"dg-publish":true,"permalink":"/hack-the-box/maquinas/easy/blue/","dgPassFrontmatter":true,"noteIcon":""}
 ---
 
 Empezamos realizando un escaneo de nmap

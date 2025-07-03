@@ -1,5 +1,5 @@
 ---
-{"dg-publish":true,"permalink":"/hack-the-box/maquinas/easy/optimum/","dgPassFrontmatter":true}
+{"dg-publish":true,"permalink":"/hack-the-box/maquinas/easy/optimum/","dgPassFrontmatter":true,"noteIcon":""}
 ---
 
 Empezamos haciendo un nmap para enumerar los sevicios existentes dentro de la maquina:

@@ -1,5 +1,5 @@
 ---
-{"dg-publish":true,"permalink":"/hack-the-box/challenges/crypto/very-easy/spg/","dgPassFrontmatter":true}
+{"dg-publish":true,"permalink":"/hack-the-box/challenges/crypto/very-easy/spg/","dgPassFrontmatter":true,"noteIcon":""}
 ---
 
 Para empezar el reto tenemos el siguiente codigo:

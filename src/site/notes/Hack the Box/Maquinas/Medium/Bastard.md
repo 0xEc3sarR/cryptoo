@@ -1,5 +1,5 @@
 ---
-{"dg-publish":true,"permalink":"/hack-the-box/maquinas/medium/bastard/","dgPassFrontmatter":true}
+{"dg-publish":true,"permalink":"/hack-the-box/maquinas/medium/bastard/","dgPassFrontmatter":true,"noteIcon":""}
 ---
 
 Empezamos hacineco un nmap para poder ver los puertos que estan abiertos.

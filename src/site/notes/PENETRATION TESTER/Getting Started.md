@@ -1,5 +1,5 @@
 ---
-{"dg-publish":true,"permalink":"/penetration-tester/getting-started/","dgPassFrontmatter":true}
+{"dg-publish":true,"permalink":"/penetration-tester/getting-started/","dgPassFrontmatter":true,"noteIcon":""}
 ---
 
 # Descripción general de Infosec 

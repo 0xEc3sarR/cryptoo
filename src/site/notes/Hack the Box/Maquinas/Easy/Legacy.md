@@ -1,5 +1,5 @@
 ---
-{"dg-publish":true,"permalink":"/hack-the-box/maquinas/easy/legacy/","dgPassFrontmatter":true}
+{"dg-publish":true,"permalink":"/hack-the-box/maquinas/easy/legacy/","dgPassFrontmatter":true,"noteIcon":""}
 ---
 
 Empezamos haciendo un nmap a la maquina:

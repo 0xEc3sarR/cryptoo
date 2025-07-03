@@ -1,5 +1,5 @@
 ---
-{"dg-publish":true,"permalink":"/dockerlabs/muy-facil/obssesion/","dgPassFrontmatter":true}
+{"dg-publish":true,"permalink":"/dockerlabs/muy-facil/obssesion/","dgPassFrontmatter":true,"noteIcon":""}
 ---
 
 ![Pasted image 20250526082559.png](/img/user/Imagenes/Pasted%20image%2020250526082559.png)

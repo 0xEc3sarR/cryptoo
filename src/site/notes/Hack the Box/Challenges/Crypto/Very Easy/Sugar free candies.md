@@ -1,5 +1,5 @@
 ---
-{"dg-publish":true,"permalink":"/hack-the-box/challenges/crypto/very-easy/sugar-free-candies/","dgPassFrontmatter":true}
+{"dg-publish":true,"permalink":"/hack-the-box/challenges/crypto/very-easy/sugar-free-candies/","dgPassFrontmatter":true,"noteIcon":""}
 ---
 
 

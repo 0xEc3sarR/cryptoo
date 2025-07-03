@@ -1,5 +1,5 @@
 ---
-{"dg-publish":true,"permalink":"/hacker101/level-1/","dgPassFrontmatter":true}
+{"dg-publish":true,"permalink":"/hacker101/level-1/","dgPassFrontmatter":true,"noteIcon":""}
 ---
 
 

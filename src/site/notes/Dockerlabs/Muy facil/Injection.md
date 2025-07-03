@@ -1,5 +1,5 @@
 ---
-{"dg-publish":true,"permalink":"/dockerlabs/muy-facil/injection/","dgPassFrontmatter":true}
+{"dg-publish":true,"permalink":"/dockerlabs/muy-facil/injection/","dgPassFrontmatter":true,"noteIcon":""}
 ---
 
 ![Pasted image 20250525004817.png](/img/user/Imagenes/Pasted%20image%2020250525004817.png)
